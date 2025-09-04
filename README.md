@@ -2,6 +2,9 @@ TechForcz – E-learning Platform
 
 TechForcz is an online learning platform designed to provide a seamless digital education experience. The system allows students to enroll in courses, track progress, and view content, while admins can manage courses, users, and analytics.
 
+----Note: This project currently runs on `localhost`.  
+To try it yourself, clone the repository.  
+
 ----Features
 
 Role-Based Access: Secure authentication for students and admins.
