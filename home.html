@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<div class="text-center animated-text ">
+  <h1 class="display-3 fw-bold mb-3">TechForcz</h1>
+  <p class="lead mb-4">Your trusted partner in the ever-evolving world of technology.</p>
+</div>
+<!-- Popular Courses -->
+<div class="container py-5">
+  <h3 class="mb-4 text-center fw-bold text-gradient">🔥 Popular Courses</h3>
+  <div class="row g-4">
+    {% for course in courses %}
+    <div class="col-md-4">
+      <div class="card course-card h-100 shadow-lg border-0 rounded-4 overflow-hidden transition">
+        <div class="card-body d-flex flex-column p-4">
+          <h5 class="card-title mb-2 fw-bold text-primary">{{ course.title }}</h5>
+          <p class="card-text mb-3 text-muted">{{ course.description|truncatechars:110 }}</p>
+          <a href="{% url 'course_detail' course.id %}" class="btn btn-gradient mt-auto fw-bold shadow-sm">🚀 View Details</a>
+        </div>
+      </div>
+    </div>
+    {% empty %}
+    <p class="text-center text-muted">Add some courses from Admin to see them here.</p>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Certificate Section -->
+{% comment %} <section class="container text-center my-5">
+  <h2 class="fw-bold mb-4">Certification on Completion</h2>
+  <p>Upon completing any course with us, you will be awarded a professional certificate.</p>
+  <img src="{% static 'images/certi.jpg' %}" class="img-fluid rounded shadow-lg mt-3" width="600">
+</section> {% endcomment %}
+
+<!-- Offer + Counsellor Form -->
+<section class="py-5 text-white" style="background: linear-gradient(90deg, #0d6efd, #6610f2);">
+  <div class="container text-center">
+    <h2 class="fw-bold">🎉 Special Offer: 50% Discount for First 100 Students</h2>
+    <p class="mb-4">Talk to our expert counsellors to know more</p>
+    <form class="row justify-content-center g-2">
+      <div class="col-md-3"><input type="text" class="form-control" placeholder="Your Name"></div>
+      <div class="col-md-3"><input type="email" class="form-control" placeholder="Your Email"></div>
+      <div class="col-md-3"><input type="tel" class="form-control" placeholder="Phone"></div>
+      <div class="col-md-2"><button class="btn btn-warning w-100">Request Call</button></div>
+    </form>
+  </div>
+</section>
+
+<!-- Extra Styling -->
+<style>
+
+  .animated-text h1,
+.animated-text p {
+  transform: scale(0.8); 
+  opacity: 0;
+  animation: zoomIn 1s forwards; /
+}
+
+.animated-text p {
+  animation-delay: 0.5s; 
+}
+
+@keyframes zoomIn {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+  .text-gradient {
+    background: linear-gradient(90deg, #ffdd57, #ff7eb3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .course-card { transition: all 0.3s ease; }
+  .course-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.2);
+  }
+  .btn-gradient {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    border: none;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+  }
+  .btn-gradient:hover {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    transform: scale(1.05);
+  }
+</style>
+{% endblock %}

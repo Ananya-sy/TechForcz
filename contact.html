@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="py-5" style="background: linear-gradient(135deg, #1e3c72, #2a5298); min-height: 100vh; display: flex; align-items: center;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card shadow-lg border-0 rounded-4 p-4 text-center" style="background: #fff;">
+          <h1 class="fw-bold mb-3 text-primary">📬 Contact Us</h1>
+          <p class="lead text-muted mb-4">
+            We’d love to hear from you! Reach us at
+            <strong class="text-dark">info@techforcz.com</strong>
+          </p>
+
+          <div class="d-flex justify-content-center gap-3 mb-4">
+            <a href="mailto:info@techforcz.com" class="btn btn-outline-primary px-4 rounded-pill shadow-sm">
+              <i class="bi bi-envelope-fill"></i> Email Us
+            </a>
+            <a href="tel:+918050941079" class="btn btn-outline-success px-4 rounded-pill shadow-sm">
+              <i class="bi bi-telephone-fill"></i> Call Us
+            </a>
+          </div>
+
+          <hr>
+            <h5 class="fw-semibold text-secondary mb-3 text-center">Follow Us</h5>
+<div class="d-flex justify-content-center gap-4">
+  <a href="https://wa.me/918050941079?text=Hi%20there%2C%20I%27d%20like%20to%20know%20more%20about%20your%20services" class="social-icon whatsapp" target="_blank" title="WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+
+  <a href="https://www.instagram.com/tech4z_" class="social-icon instagram" target="_blank" title="Instagram">
+    <i class="bi bi-instagram"></i>
+  </a>
+  <a href="https://www.linkedin.com/company/TechForcZ" class="social-icon linkedin" target="_blank" title="LinkedIn">
+    <i class="bi bi-linkedin"></i>
+  </a>
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% comment %} Links style part {% endcomment %}
+<style>
+  .social-icon {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    background-color: #f1f1f1;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .social-icon:hover {
+    transform: scale(1.15);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    color: #fff !important;
+  }
+
+  .social-icon.whatsapp:hover {
+    background-color: #25D366;
+  }
+
+  .social-icon.instagram:hover {
+    background-color: #E1306C;
+  }
+
+  .social-icon.linkedin:hover {
+    background-color: #0A66C2;
+  }
+</style>
+
+{% endblock %}
+

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+  <!-- Course Details -->
+  <div class="col-lg-8">
+    <div class="card p-4 mb-3">
+      <h2>{{ course.title }}</h2>
+      <p>{{ course.description }}</p>
+
+      <h5 class="mt-4">Materials</h5>
+      {% if user.is_authenticated and enrolled %}
+        <ul class="mb-0">
+          {% for m in course.materials.all %}
+            <li>
+              {{ m.title }} —
+              <a href="{{ m.file.url }}" target="_blank">Open</a>
+            </li>
+          {% empty %}
+            <li>No materials yet.</li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="text-danger">❌ Oopssieeee, You must enroll in this course to access materials.</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Sidebar Actions -->
+  <div class="col-lg-4">
+    <div class="card p-4">
+      {% if user.is_authenticated %}
+        {% if enrolled %}
+          <a href="{% url 'dashboard' %}" class="btn btn-success w-100 mb-2">Go to Dashboard</a>
+          
+          {% comment %} <!--  Certificate Button only for enrolled users -->
+          <a href="{% url 'certificate' course.id %}" class="btn btn-primary w-100 mb-2">
+            View Certificate
+          </a> {% endcomment %}
+       {% else %}
+          <a href="{% url 'enroll_now' course.id %}" class="btn btn-custom w-100 mb-2">Enroll Now</a>
+        {% endif %} 
+      {% else %}
+        <a href="{% url 'login' %}" class="btn btn-custom w-100 mb-2">Login to Enroll</a>
+      {% endif %}
+
+      {% if user.is_staff %}
+        <a href="{% url 'upload_content' course.id %}" class="btn btn-warning w-100">Upload Content</a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}
